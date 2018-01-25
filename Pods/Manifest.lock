@@ -1,0 +1,27 @@
+PODS:
+  - CZPicker (0.4.3)
+  - JHTAlertController (0.2.4)
+  - KRPullLoader (1.0.0)
+  - SideMenuController (0.2.4)
+  - SkyFloatingLabelTextField (3.1.0)
+  - SVProgressHUD (2.1.2)
+
+DEPENDENCIES:
+  - CZPicker
+  - JHTAlertController
+  - KRPullLoader
+  - SideMenuController
+  - SkyFloatingLabelTextField
+  - SVProgressHUD
+
+SPEC CHECKSUMS:
+  CZPicker: 55aa1751ea26e209814552da1a9a08cba8bbf72a
+  JHTAlertController: 8999fdf41c60a3d6698a3415ff1448f4ce4680e5
+  KRPullLoader: 1dcc1fd77f9a5e7a19a4b43dc35e2b4a2f1bf697
+  SideMenuController: b463d2b3aa58e2afe57f57a07938fa9a647894ca
+  SkyFloatingLabelTextField: 26a92ad407044dd5a7c3e4e348738ff0991514fe
+  SVProgressHUD: c404a55d78acbeb7ebb78b76d3faf986475a6994
+
+PODFILE CHECKSUM: f3617cdbe8d48e41f6e900eff1dbba1501f49a1f
+
+COCOAPODS: 1.2.0

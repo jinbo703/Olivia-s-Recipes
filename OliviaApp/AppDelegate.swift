@@ -2,11 +2,12 @@
 //  AppDelegate.swift
 //  OliviaApp
 //
-//  Created by PAC on 11/11/17.
-//  Copyright © 2017 PAC. All rights reserved.
+//  Created by John Nik on 11/11/17.
+//  Copyright © 2017 johnik703. All rights reserved.
 //
 
 import UIKit
+import SideMenuController
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -15,7 +16,50 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        
+        SideMenuController.preferences.drawing.menuButtonImage = UIImage(named: AssetName.menu.rawValue)?.withRenderingMode(.alwaysOriginal)
+        SideMenuController.preferences.drawing.sidePanelPosition = .underCenterPanelLeft
+        SideMenuController.preferences.drawing.sidePanelWidth = 150
+        SideMenuController.preferences.drawing.centerPanelShadow = true
+        SideMenuController.preferences.animating.statusBarBehaviour = .horizontalPan
+        SideMenuController.preferences.animating.transitionAnimator = FadeAnimator.self
+        
+        
+        window = UIWindow(frame: UIScreen.main.bounds)
+        window?.makeKeyAndVisible()
+        
+//        window?.rootViewController = MainNavigationController()
+        
+        let sideMenuViewController = SideMenuController()
+        
+        let layout = UICollectionViewFlowLayout()
+        let homeController = HomeTabBarController(collectionViewLayout: layout)
+        let navController = UINavigationController(rootViewController: homeController)
+        let sideController = SideController()
+        
+        sideMenuViewController.embed(sideViewController: sideController)
+        sideMenuViewController.embed(centerViewController: navController)
+        
+        window?.rootViewController = sideMenuViewController
+        
+        
+        
+        UINavigationBar.appearance().barTintColor = StyleGuideManager.currentPageIndicatorGreenTintColor
+        UINavigationBar.appearance().tintColor = .white
+        UINavigationBar.appearance().titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white, NSAttributedStringKey.font: UIFont.boldSystemFont(ofSize: 24)]
+        
+        //get rid of balck bar underneath navbar
+        UINavigationBar.appearance().shadowImage = UIImage()
+        UINavigationBar.appearance().setBackgroundImage(UIImage(),  for: .default)
+        
+        application.statusBarStyle = .lightContent
+        
+//        let statusBarBackgroundView = UIView()
+//        statusBarBackgroundView.backgroundColor = StyleGuideManager.currentPageIndicatorGreenTintColor
+//        window?.addSubview(statusBarBackgroundView)
+//        window?.addConnstraintsWith(Format: "H:|[v0]|", views: statusBarBackgroundView)
+//        window?.addConnstraintsWith(Format: "V:|[v0(20)]", views: statusBarBackgroundView)
+        
         return true
     }
 
