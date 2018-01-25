@@ -2,8 +2,8 @@
 //  ViewController.swift
 //  OliviaApp
 //
-//  Created by PAC on 11/11/17.
-//  Copyright © 2017 PAC. All rights reserved.
+//  Created by John Nik on 11/11/17.
+//  Copyright © 2017 johnik703. All rights reserved.
 //
 
 import UIKit
